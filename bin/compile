@@ -85,6 +85,12 @@ else
 
 fi
 
+####### Run the test script, if one is specified
+head "Running tests"
+if [[ $(read_json "$build_dir/package.json" ".scripts.test") != "" ]]; then
+  npm test
+fi
+
 ####### Create a Procfile if possible
 
 head "Checking startup method"
